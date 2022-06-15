@@ -1,14 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Home from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/', name: 'Home', component: Home,
+    meta: {
+      title: 'Home - Scantist',
+      metaTags: [
+        { name: 'description', content: 'Scantist home page description' },
+        { property: 'og:description', content: 'Scantist home page description' }
+      ]
+    }
   }
 ]
 

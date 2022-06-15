@@ -71,9 +71,11 @@ export default {
   methods: {
     async get() {
       this.loading = true;
-      await axios.get('https://api.opendota.com/api/heroStats').then(res => {
+      await axios.get('https://api.opendota.com/api/heroStats').then(async res => {
         this.items = res.data
-        console.log(res.data)
+        for(let i = 0; i < 10; i++) {
+          await axios.get(`https://api.opendota.com/api/players/${this.items[i].id}/recentMatches`).then(x => console.log(x));
+        }
       });
       this.loading = false;
     }
